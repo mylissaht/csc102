@@ -1,0 +1,39 @@
+/* 
+declaration block:
+
+selector{
+    property: value;
+    property2: value;
+}
+*/
+
+body{
+    background-color: blueviolet;
+    color:aqua;
+}
+
+nav{
+    height: 600px;
+    width: 200;
+    float: left;
+    padding:  5px;
+    line-height: 30px;
+}
+
+footer{
+    text-align: center;
+    margin-right: 200px;
+}
+
+#MEMIMAGE{
+    margin-right: 200px;
+}
+
+h1{
+    text-align: center;
+     color: rgb(241, 230, 230);
+     font-size: 32px;
+     text-align: center;
+      
+      
+}
