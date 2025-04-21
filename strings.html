@@ -1,8 +1,3 @@
-<!--
-Author: [MELISSA TRUJILLO]
--->
-<!DOCTYPE html>
-<html>
 <head>
     <title>Palindrome Checker</title>
     <style>
@@ -24,33 +19,90 @@ Author: [MELISSA TRUJILLO]
     </style>
 </head>
 <body>
-    <!--my title goes here-->
-    <h1>Mel's Palindrome Checker</h1>
+   <!-- Main heading of the page -->
+   <h1>Mel's Palindrome Checker</h1>
 
-    <input type="text" id="text" placeholder="Type something..." />
-   <!--no action listeners ie use oneclick-->
-    <button onclick="checkPalindrome()">Check</button>
-    <!--results go here-->
-    <div id="result"></div>
+   <!-- Input for first name -->
+   <input type="text" id="firstName" placeholder="First name" />
 
-    <script>
-        <!--this is the button funtion-->
-        function checkPalindrome() {
-          <!--this is user input-->  
-          const input = document.getElementById("text").value.trim();
-            <!--this sections cleans the input so that can be anyalized, by removing spaces and making all lowercase words -->
-            const clean = input.replace(/\s+/g, '').toLowerCase();
-            <!--this line is where the input get reversed-->
-            const reversed = clean.split('').reverse().join('');
-            <!--this check to see if its "clean and is its the same  reversed if yes then BINGO"-->
-            if (clean && clean === reversed) {
-              <!--if its a palindromes then its says it is if not then u get an x-->  
-              document.getElementById("result").innerText = `"${input}" is a palindrome!`;
-            } else {
-                document.getElementById("result").innerText = `"${input}" is NOT a palindrome ❌`;
-            }
-        }
-    </script>
+   <!-- Input for last name -->
+   <input type="text" id="lastName" placeholder="Last name" />
 
+   <!-- Input for ZIP code -->
+   <input type="text" id="zipCode" placeholder="ZIP Code" />
+
+   <!-- Input for the palindrome string -->
+   <input type="text" id="palindromeText" placeholder="Type something..." />
+
+   <!-- Button to check -->
+   <button onclick="checkPalindrome()">Check</button>
+
+   <!-- Where the result shows -->
+   <div id="result"></div>
+
+   <!-- Where the secret message  -->
+   <div id="secret"></div>
+
+   <!-- JavaScript section -->
+   <script>
+       // Function to check all validations and determine if input is a palindrome
+       function checkPalindrome() {
+           // Grab user's first name
+           const first = document.getElementById("firstName").value.trim();
+
+           // Grab user's last name
+           const last = document.getElementById("lastName").value.trim();
+
+           // Combine first and last name into full name with space
+           const fullName = first + " " + last;
+
+           // Grab ZIP code value
+           const zip = document.getElementById("zipCode").value.trim();
+
+           // Grab the text user wants to check for palindrome
+           const input = document.getElementById("palindromeText").value.trim();
+
+           // Grab result and secret areas to update later
+           const resultDiv = document.getElementById("result");
+           const secretDiv = document.getElementById("secret");
+
+           
+           // Check if full name is longer than 20 characters
+           if (fullName.length > 20) {
+               resultDiv.innerText = "Name is too long! Keep it under 20 characters.";
+               return; // stop if invalid
+           }
+
+           // Check if ZIP code is exactly 5 digits using regex
+           if (!/^\d{5}$/.test(zip)) {
+               resultDiv.innerText = "ZIP Code must be exactly 5 digits.";
+               return; // stop if invalid
+           }
+
+           // Clean the palindrome input by removing spaces and making it lowercase
+           const clean = input.replace(/\s+/g, '').toLowerCase();
+
+           // Reverse the cleaned string
+           const reversed = clean.split('').reverse().join('');
+
+           // Check if input is a palindrome
+           if (clean && clean === reversed) {
+               resultDiv.innerText = `"${input}" is a palindrome! `;
+
+               // Show secret message if everything is valid
+               secretDiv.innerText = "Secret Message: You are awesome, " + first + "!";
+
+               // Add a creative image for fun
+               const img = document.createElement("img");
+               img.src = "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif"; // a fun gif
+               img.alt = "Congrats!";
+               img.className = "secret-img";
+               secretDiv.appendChild(img);
+           } else {
+               // If it's not a palindrome
+               resultDiv.innerText = `"${input}" is NOT a palindrome `;
+           }
+       }
+   </script>
 </body>
 </html>
