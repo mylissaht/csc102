@@ -1,0 +1,56 @@
+<!--
+Author: [MELISSA TRUJILLO]
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #c5129b;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 30px;
+            margin-top: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!--my title goes here-->
+    <h1>Mel's Palindrome Checker</h1>
+
+    <input type="text" id="text" placeholder="Type something..." />
+   <!--no action listeners ie use oneclick-->
+    <button onclick="checkPalindrome()">Check</button>
+    <!--results go here-->
+    <div id="result"></div>
+
+    <script>
+        <!--this is the button funtion-->
+        function checkPalindrome() {
+          <!--this is user input-->  
+          const input = document.getElementById("text").value.trim();
+            <!--this sections cleans the input so that can be anyalized, by removing spaces and making all lowercase words -->
+            const clean = input.replace(/\s+/g, '').toLowerCase();
+            <!--this line is where the input get reversed-->
+            const reversed = clean.split('').reverse().join('');
+            <!--this check to see if its "clean and is its the same  reversed if yes then BINGO"-->
+            if (clean && clean === reversed) {
+              <!--if its a palindromes then its says it is if not then u get an x-->  
+              document.getElementById("result").innerText = `"${input}" is a palindrome!`;
+            } else {
+                document.getElementById("result").innerText = `"${input}" is NOT a palindrome ❌`;
+            }
+        }
+    </script>
+
+</body>
+</html>
