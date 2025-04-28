@@ -2,64 +2,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CSC102 HOME PAGE</title>
+    <!-- Title shown in the browser tab -->
+    <title>Mels CSC102 HOME PAGE</title>
+
+    <!-- link for for my main.css file containing style like bkground colors  -->
     <link rel="stylesheet" href="main.css">
-    <style>
+
+   <!--this section for the size of my meme -->
+   <style>
+        /* This is how i comment in css format!!!!!yayyyy  */
         #MEMIMAGE {
             position: absolute;
             top: 150px;
             left: 0px;
             width: 200px;
         }
+    
+        /* this is because when i changed my meme it was covering my darn buttons so i had to change the position of my meme to see my buttons!!!!!! */
         #controls {
-            margin-top: 300px;
+            position: relative;
+            margin-top: 400px; /* moved my buttons down */
+            z-index: 10;       /* this makes sure my buttons are above the image, or below, ???? wait,  */
         }
     </style>
+    
 </head>
 <body>
-  <!-- what my page says at the top-->  
-  <h1>WELCOME TO Mel's CSC102 HOME PAGE</h1>
+    <!-- This is the title people see -->
+    <h1>WELCOME TO Mel's CSC102 HOME PAGE</h1>
+
+    <!-- this is my new image meme, me and my ai robot -->
     <p>
-        <img id="MEMIMAGE" src="CB1112E9-6754-4215-A153-620FADBEFD5D.jpeg">
+        <!-- ok Mr H says i have to use a relitive path of my image in the same folder -->
+        <img id="MEMIMAGE" src="A75DA68F-BEE5-4F34-BFA2-2B8E594B8E7A.png">
     </p>
 
-    <!-- heres my ghostbusters song -->
+    <!-- this is my sound so im gonna have to also use a relitive path,  -->
     <audio id="mySound" src="732074__denkyschuk__ghostbusters-rock-bpm-88-loop.wav"></audio>
 
-    <!-- heres my buttons to start and stop my meme -->
+    <!-- Buttons to start and stop my image movement -->
     <div id="controls">
         <button onclick="startMoving()">Start Moving</button>
         <button onclick="stopMoving()">Stop Moving</button>
     </div>
 
     <script>
+        // this is java script commening formate! Yayyyyyy image element goes here Ie "memeimage" to move it accross the screen
         let img = document.getElementById("MEMIMAGE");
+
+        // Initial position of my meme image on the X-axis
         let position = 0;
-        let direction = 1; // 1 = right, -1 = left
+
+        // Direction of movement: 1 means to move right, i want it to move right
+        let direction = 1;
+
+        // Variable to store the interval ID to stop
         let intervalId;
+
+        // my audio element id goes here Ie "my sound" play/pause the sound
         let sound = document.getElementById("mySound");
 
+        // Function that moves my image left or right
         function moveImage() {
+            // Update position based on direction
             position += direction * 5;
 
+            // this says my image will come back when it hit the edge of the screren!!! crazy
             if (position >= window.innerWidth - img.width || position <= 0) {
+                // Reverse direction when hitting edge
                 direction *= -1;
             }
 
+            // Apply the new position to the image
             img.style.left = position + "px";
         }
 
-        <!-- heres what my buttons  -->
+        // funtion means (what happens) when Start Moving button is clicked
         function startMoving() {
+            // Only start if it isn't already moving
             if (!intervalId) {
+                // Move the image every 20 milliseconds
                 intervalId = setInterval(moveImage, 20);
+
+                // Play the sound
                 sound.play();
             }
         }
 
+        // Function means (what  happens) when Stop Moving button is clicked
         function stopMoving() {
+            // Stop the movement by clearing the interval
             clearInterval(intervalId);
             intervalId = null;
+
+            // Pause and restart the sound
             sound.pause();
             sound.currentTime = 0;
         }
