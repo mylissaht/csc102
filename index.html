@@ -4,12 +4,13 @@
 <head>
     <title>CSC102 HOME PAGE</title>
     <link rel="stylesheet" href="main.css">
+    <!--style of my image -->
     <style>
         #MEMIMAGE {
             position: absolute;
             top: 150px;
             left: 0px;
-            width: 200px; /* Adjust size as needed */
+            width: 200px; 
         }
 
         #controls {
@@ -18,13 +19,16 @@
     </style>
 </head>
 <body>
-    <h1>WELCOME TO MY CSC102 HOME PAGE</h1>
+    <h1>WELCOME TO Mel's CSC102 HOME PAGE</h1>
     <p>
-        <img id="MEMIMAGE" src="CB1112E9-6754-4215-A153-620FADBEFD5D.jpeg">
+      <!--my meme-->  
+      <img id="MEMIMAGE" src="CB1112E9-6754-4215-A153-620FADBEFD5D.jpeg">
     </p>
 
     <div id="controls">
+        <!--button to start-->
         <button onclick="startMoving()">Start Moving</button>
+        <!--button to stop-->
         <button onclick="stopMoving()">Stop Moving</button>
     </div>
 
@@ -45,12 +49,14 @@
             img.style.left = position + "px";
         }
 
+        <!--funtion of my button-->
         function startMoving() {
             if (!intervalId) {
                 intervalId = setInterval(moveImage, 20); // Move every 20 milliseconds
             }
         }
 
+        <!--funtion of my button-->
         function stopMoving() {
             clearInterval(intervalId);
             intervalId = null;
