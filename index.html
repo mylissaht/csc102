@@ -1,23 +1,60 @@
 <!-- Melissa Trujillo, April 4, 2023 -->
-<!-- DOCTYPE  this is the first tag on the page and it tells the broweser that this is HTML5 -->
 <!DOCTYPE html>
-<!-- the html tag goes next-->
- <html>
-    <!-- the head section has info for the browsere and serach engine -->
-     <head>
-        <title>CSC102 HOME PAGE</title>
-        <!-- add a link to our css file -->
-         <link rel="stylesheet" href="main.css">
-     </head>
+<html>
+<head>
+    <title>CSC102 HOME PAGE</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        #MEMIMAGE {
+            position: absolute;
+            top: 150px;
+            left: 0px;
+            width: 200px; /* Adjust size as needed */
+        }
 
-     <!-- THE BODY SECTION HOLDS THE TEXT AND IMAGES THAT WE WANT TO SHOW TO THE USER-->
-      <body>
-        <h1>WELCOME TO MY CSC102 HOME PAGE</h1>
-        <!--P IS PARAGRAPH TAG; HAS SPACING AROUND IT BY DEFAULT-->
-        <P>
-            <!-- IMG IS THE IMAGE TAG -->
-            <IMG ID="MEMIMAGE" src="/Users/melissatrujillo/CSC102 foundation/CB1112E9-6754-4215-A153-620FADBEFD5D.jpeg">
-        </P>
-      </body>
- </html>
+        #controls {
+            margin-top: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME TO MY CSC102 HOME PAGE</h1>
+    <p>
+        <img id="MEMIMAGE" src="CB1112E9-6754-4215-A153-620FADBEFD5D.jpeg">
+    </p>
 
+    <div id="controls">
+        <button onclick="startMoving()">Start Moving</button>
+        <button onclick="stopMoving()">Stop Moving</button>
+    </div>
+
+    <script>
+        let img = document.getElementById("MEMIMAGE");
+        let position = 0;
+        let direction = 1; // 1 = right, -1 = left
+        let intervalId;
+
+        function moveImage() {
+            position += direction * 5; // Move 5 pixels at a time
+
+            // Check for edges of the screen
+            if (position >= window.innerWidth - img.width || position <= 0) {
+                direction *= -1; // Change direction
+            }
+
+            img.style.left = position + "px";
+        }
+
+        function startMoving() {
+            if (!intervalId) {
+                intervalId = setInterval(moveImage, 20); // Move every 20 milliseconds
+            }
+        }
+
+        function stopMoving() {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+    </script>
+</body>
+</html>
