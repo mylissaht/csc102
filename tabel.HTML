@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+
+    <title>Lifewave Patch Info Table</title> <!-- Title of the page shown on the browser tab -->
+
+    <!-- This links to my main.css to copy stying and colors -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- to add borders around each table cell -->
+    <style>
+        /* Styles the table, headers, and cells with borders and spacing */
+        table.patch-table {
+            border-collapse: collapse; /* Ensures borders are merged instead of double lines */
+            width: 100%; /* Makes the table take the FULL(100%) width of the page */
+        }
+        table.patch-table th,
+        table.patch-table td {
+            border: 1px solid #000; /* Adds a solid black border around each cell */
+            padding: 10px; /* Adds space inside the cells so its easier to read  */
+            text-align: left; /* formatting Aligns text to the left inside each cell */
+        }
+        table.patch-table th {
+            background-color: #f2f2f2; /* Light gray background for headers for better contrast cuz my colors clash lol */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main heading of the page -->
+    <h1>Lifewave Patch Comparison - What combo is right for you?</h1>
+
+    <!-- Table to compare different Lifewave patches -->
+    <table class="patch-table">
+        <thead>
+            <!-- Table header row -->
+            <tr>
+                <th>Info</th> <!-- Header cell for the row titles -->
+                <th>X39</th> <!-- Header cell for X39 patch -->
+                <th>Energy Enhancer</th> <!-- Header for Energy Enhancer patch -->
+                <th>IceWave</th> <!-- Header for IceWave patch -->
+                <th>Glutathione</th> <!-- Header for Glutathione patch -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- First data row showing benefits of each patch -->
+            <tr>
+                <td><strong>Benefits</strong></td> <!-- Labels for this row -->
+                <td>Activates stem cells, supports healing, reduces pain & inflammation</td>
+                <td>Boosts energy and endurance, improves recovery time</td>
+                <td>Drug-free pain relief</td>
+                <td>Detoxifies the body, supports immune function</td>
+            </tr>
+            <!-- Second row showing how each patch works -->
+            <tr>
+                <td><strong>How It Works</strong></td>
+                <td>Stimulates the body's stem cells through light therapy (phototherapy)</td>
+                <td>Increases beta oxidation to produce more energy from fat</td>
+                <td>Balances bioelectric signals for pain reduction</td>
+                <td>Uses light to elevate the body’s production of glutathione</td>
+            </tr>
+            <!-- Third row for retail pricing -->
+            <tr>
+                <td><strong>Retail Price</strong></td>
+                <td>$149.95</td>
+                <td>$79.95</td>
+                <td>$79.95</td>
+                <td>$79.95</td>
+            </tr>
+            <!-- Fourth row for wholesale pricing -->
+            <tr>
+                <td><strong>Wholesale Price</strong></td>
+                <td>$99.95</td>
+                <td>$59.95</td>
+                <td>$59.95</td>
+                <td>$59.95</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

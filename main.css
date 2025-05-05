@@ -1,20 +1,14 @@
-/* 
-declaration block:
-
-selector{
-    property: value;
-    property2: value;
-}
-*/
-
 body{
-    background-color: blueviolet;
-    color:aqua;
-}
+    background-color: rgb(17, 4, 30);
+    color:rgb(68, 0, 255);
+    font-size: 30px;
+      }
+      
+
 
 nav{
     height: 600px;
-    width: 200;
+    width: 200px;
     float: left;
     padding:  5px;
     line-height: 30px;
@@ -32,7 +26,7 @@ footer{
 h1{
     text-align: center;
      color: rgb(241, 230, 230);
-     font-size: 32px;
+     font-size: 50px;
      text-align: center;
       
       

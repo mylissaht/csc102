@@ -13,7 +13,7 @@ function generatePatchProtocol() {
       "X49 + SP6 Complete",
       "X39 + Silent Nights",
       "X39 + Nirvana",
-      "Contact Mel to personalize your package 💬"
+      "Contact Mel to personalize your package https://lifewave.com/2971014"
     ];
   
     const randomIndex = Math.floor(Math.random() * patchCombos.length);
