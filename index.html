@@ -1,104 +1,122 @@
-<!-- Melissa Trujillo, April 4, 2023 -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Title shown in the browser tab -->
-    <title>Mels CSC102 HOME PAGE</title>
-
-    <!-- link for for my main.css file containing style like bkground colors  -->
-    <link rel="stylesheet" href="main.css">
-
-   <!--this section for the size of my meme -->
-   <style>
-        /* This is how i comment in css format!!!!!yayyyy  */
-        #MEMIMAGE {
-            position: absolute;
-            top: 150px;
-            left: 0px;
-            width: 200px;
+    <meta charset="UTF-8">
+    <title>My AI Art Museum</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-    
-        /* this is because when i changed my meme it was covering my darn buttons so i had to change the position of my meme to see my buttons!!!!!! */
-        #controls {
-            position: relative;
-            margin-top: 400px; /* moved my buttons down */
-            z-index: 10;       /* this makes sure my buttons are above the image, or below, ???? wait,  */
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .art-piece {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 15px;
+            width: 300px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .art-piece img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .title {
+            font-size: 1.2em;
+            margin: 10px 0 5px;
+        }
+
+        .description {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
         }
     </style>
-    
 </head>
 <body>
-    <!-- This is the title people see -->
-    <h1>WELCOME TO Mel's CSC102 HOME PAGE</h1>
 
-    <!-- this is my new image meme, me and my ai robot -->
-    <p>
-        <!-- ok Mr H says i have to use a relitive path of my image in the same folder -->
-        <img id="MEMIMAGE" src="A75DA68F-BEE5-4F34-BFA2-2B8E594B8E7A.png">
-    </p>
+    <header>
+        <h1>Melissa's AI Art Museum</h1>
+        <p>Exploring Creativity through Generative AI</p>
+    </header>
 
-    <!-- this is my sound so im gonna have to also use a relitive path,  -->
-    <audio id="mySound" src="732074__denkyschuk__ghostbusters-rock-bpm-88-loop.wav"></audio>
+    <section class="gallery">
 
-    <!-- Buttons to start and stop my image movement -->
-    <div id="controls">
-        <button onclick="startMoving()">Start Moving</button>
-        <button onclick="stopMoving()">Stop Moving</button>
-    </div>
+        <!-- Art Piece 1 -->
+        <div class="art-piece">
+            <img src="cuttingthrucancer.jpeg" alt="Art 1">
+            <div class="title">Cutting thru Cancer</div>
+            <div class="description">A Portrait of myself after my father died of cancer. <br><strong>Generated with:</strong> DALL·E</div>
+        </div>
 
-    <script>
-        // this is java script commening formate! Yayyyyyy image element goes here Ie "memeimage" to move it accross the screen
-        let img = document.getElementById("MEMIMAGE");
+        <!-- Art Piece 2 -->
+        <div class="art-piece">
+            <img src="notyourenemy.jpeg" alt="Sunset Forest">
+            <div class="title">Not your enemy</div>
+            <div class="description">A native standing proudly infront of a United States flag. <br><strong>Generated with:</strong> Midjourney</div>
+        </div>
 
-        // Initial position of my meme image on the X-axis
-        let position = 0;
+         <!-- Art Piece 1 -->
+         <div class="art-piece">
+            <img src="todolist.jpeg" alt="Art 1">
+            <div class="title">To Do List</div>
+            <div class="description">An image of a strong mom Conquering her to do list. <br><strong>Generated with:</strong> DALL·E</div>
+        </div>
 
-        // Direction of movement: 1 means to move right, i want it to move right
-        let direction = 1;
+        <!-- Art Piece 2 -->
+        <div class="art-piece">
+            <img src="newmexico.jpeg" alt="Sunset Forest">
+            <div class="title"> visiting New Mexico</div>
+            <div class="description">An image of a woman standing with an alian taking a selfie photo. <br><strong>Generated with:</strong> DALL-E</div>
+        </div>
 
-        // Variable to store the interval ID to stop
-        let intervalId;
+        <!-- Add More Art Pieces Below -->
+        <!-- Copy and Paste this block to add more images -->
 
-        // my audio element id goes here Ie "my sound" play/pause the sound
-        let sound = document.getElementById("mySound");
+        <!-- 
+        <div class="art-piece">
+            <img src="yourimage.jpg" alt="Your Art Title">
+            <div class="title">Your Art Title</div>
+            <div class="description">Your description goes here. <br><strong>Generated with:</strong> Tool Name</div>
+        </div>
+        -->
 
-        // Function that moves my image left or right
-        function moveImage() {
-            // Update position based on direction
-            position += direction * 5;
+    </section>
 
-            // this says my image will come back when it hit the edge of the screren!!! crazy
-            if (position >= window.innerWidth - img.width || position <= 0) {
-                // Reverse direction when hitting edge
-                direction *= -1;
-            }
+    <footer>
+        &copy; 2025 My AI Art Museum | Created by [Your Name]
+    </footer>
 
-            // Apply the new position to the image
-            img.style.left = position + "px";
-        }
-
-        // funtion means (what happens) when Start Moving button is clicked
-        function startMoving() {
-            // Only start if it isn't already moving
-            if (!intervalId) {
-                // Move the image every 20 milliseconds
-                intervalId = setInterval(moveImage, 20);
-
-                // Play the sound
-                sound.play();
-            }
-        }
-
-        // Function means (what  happens) when Stop Moving button is clicked
-        function stopMoving() {
-            // Stop the movement by clearing the interval
-            clearInterval(intervalId);
-            intervalId = null;
-
-            // Pause and restart the sound
-            sound.pause();
-            sound.currentTime = 0;
-        }
-    </script>
 </body>
 </html>
